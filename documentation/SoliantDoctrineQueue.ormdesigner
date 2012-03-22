@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <orm-designer version="1.4.7.499">
 
-  <project code-name="DoctrineQueue" framework="Without Framework" name="DoctrineQueue" orm="Doctrine2" visSizeX="0" visSizeX2="395" visSizeY="0" visSizeY2="305">
-    <module-position name="DoctrineQueue" visPositionX="50" visPositionY="50"/>
+  <project code-name="SoliantDoctrineQueue" description="A ZF2 queue adapter for Doctrine" framework="Without Framework" name="Soliant Doctrine Queue" orm="Doctrine2" visSizeX="0" visSizeX2="395" visSizeY="0" visSizeY2="305">
+    <module-position name="SoliantDoctrineQueue" visPositionX="50" visPositionY="50"/>
   </project>
 
-  <module import-format="Doctrine2Xml" import-path="..\config\xml\" name="DoctrineQueue" visBkColor="16054268" visSizeX="0" visSizeX2="287" visSizeY="0" visSizeY2="186">
+  <module import-format="Doctrine2Xml" import-path="..\..\..\modules\core\DoctrineQueue\config\xml\" name="SoliantDoctrineQueue" visBkColor="16054268" visSizeX="0" visSizeX2="287" visSizeY="0" visSizeY2="186">
     <table name="Queue" visPositionX="20" visPositionY="40" visSizeX="0" visSizeX2="96" visSizeY="0" visSizeY2="59">
       <column auto-increment="true" name="id" primary="true" type="integer"/>
       <column name="name" type="string"/>
@@ -21,7 +21,7 @@
       <column name="created" type="integer"/>
     </table>
     <orm-properties>
-      <attribute name="namespace">DoctrineQueue\Entity</attribute>
+      <attribute name="namespace">SoliantDoctrineQueue\Entity</attribute>
     </orm-properties>
     <foreign-key caption="" from="Messages" inverse-alias="queue" name="FK_Messages_Queue_id" owning-alias="messages" to="Queue">
       <foreign-key-column from="queue_id" to="id"/>
