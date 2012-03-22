@@ -5,11 +5,14 @@
     <module-position name="SoliantDoctrineQueue" visPositionX="50" visPositionY="50"/>
   </project>
 
-  <module import-format="Doctrine2Xml" import-path="..\..\..\modules\core\DoctrineQueue\config\xml\" name="SoliantDoctrineQueue" visBkColor="16054268" visSizeX="0" visSizeX2="287" visSizeY="0" visSizeY2="186">
+  <module import-format="Doctrine2Xml" import-path="..\config\xml\" name="SoliantDoctrineQueue" visBkColor="16054268" visSizeX="0" visSizeX2="287" visSizeY="0" visSizeY2="186">
     <table name="Queue" visPositionX="20" visPositionY="40" visSizeX="0" visSizeX2="96" visSizeY="0" visSizeY2="59">
       <column auto-increment="true" name="id" primary="true" type="integer"/>
       <column name="name" type="string"/>
       <column default="30" name="timeout" type="integer"/>
+      <orm-properties>
+        <attribute name="table">queue</attribute>
+      </orm-properties>
     </table>
     <table name="Messages" visPositionX="156" visPositionY="40" visSizeX="0" visSizeX2="102" visSizeY="0" visSizeY2="101">
       <column auto-increment="true" name="id" primary="true" type="integer"/>
@@ -19,6 +22,9 @@
       <column name="md5" type="string"/>
       <column name="timeout" type="decimal"/>
       <column name="created" type="integer"/>
+      <orm-properties>
+        <attribute name="table">messages</attribute>
+      </orm-properties>
     </table>
     <orm-properties>
       <attribute name="namespace">SoliantDoctrineQueue\Entity</attribute>
