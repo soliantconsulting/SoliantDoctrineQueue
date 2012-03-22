@@ -1,6 +1,6 @@
 <?php
 
-namespace DoctrineQueue;
+namespace SoliantDoctrineQueue;
 
 use Zend\Module\Manager,
     Zend\EventManager\StaticEventManager,
@@ -19,7 +19,7 @@ class Module implements AutoloaderProvider
     {
         return array(
             'Zend\Loader\ClassMapAutoloader' => array(
-                __DIR__ . '/autoload_classmap.php',
+          //      __DIR__ . '/autoload_classmap.php',
             ),
             'Zend\Loader\StandardAutoloader' => array(
                 'namespaces' => array(
