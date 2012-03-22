@@ -1,4 +1,4 @@
-This is a Zend Framework 2 (zf2) module which contains a doctrine adapter
+This is a Zend Framework 2 (zf2) module which contains a doctrine queue adapter.
 
 use Zend\Queue\Queue,
     SoliantDoctrineQueue\Queue\Adapter\Doctrine as DoctrineAdapter;
@@ -10,3 +10,4 @@ $queue = new Queue($doctrine, array (
 ));
 
 Two new tables will be added to your doctrine configuration, queue and messages.
+
