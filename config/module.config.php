@@ -1,8 +1,6 @@
 <?php
 return array(
     'soliantdoctrinequeue' => array(
-        'user_model_class'          => 'ZfcUserDoctrineORM\Entity\User',
-        'usermeta_model_class'      => 'ZfcUserDoctrineORM\Entity\UserMeta',
     ),
     'di' => array(
         'instance' => array(
@@ -22,16 +20,6 @@ return array(
                         ),
                     ),
                 )
-            ),
-            'ZfcUserDoctrineORM\Mapper\UserDoctrine' => array(
-                'parameters' => array(
-                    'em' => 'zfcuser_doctrine_em',
-                ),
-            ),
-            'ZfcUserDoctrineORM\Mapper\UserMetaDoctrine' => array(
-                'parameters' => array(
-                    'em' => 'zfcuser_doctrine_em',
-                ),
             ),
         ),
     ),
