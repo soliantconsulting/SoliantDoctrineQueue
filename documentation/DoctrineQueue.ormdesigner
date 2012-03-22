@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<orm-designer version="1.4.7.499">
+
+  <project code-name="DoctrineQueue" framework="Without Framework" name="DoctrineQueue" orm="Doctrine2" visSizeX="0" visSizeX2="834" visSizeY="0" visSizeY2="688">
+    <module-position name="DoctrineQueue" visPositionX="50" visPositionY="50"/>
+  </project>
+
+  <module import-format="Doctrine2Xml" import-path=".\" name="DoctrineQueue" visBkColor="16054268" visSizeX="0" visSizeX2="734" visSizeY="0" visSizeY2="588">
+    <table name="Queue" visPositionX="20" visPositionY="40" visSizeX="0" visSizeX2="96" visSizeY="0" visSizeY2="59">
+      <column auto-increment="true" name="id" primary="true" type="integer"/>
+      <column name="name" type="string"/>
+      <column default="30" name="timeout" type="integer"/>
+    </table>
+    <table name="Messages" visPositionX="156" visPositionY="40" visSizeX="0" visSizeX2="102" visSizeY="0" visSizeY2="101">
+      <column auto-increment="true" name="id" primary="true" type="integer"/>
+      <column name="queue_id" type="integer"/>
+      <column name="handle" type="string"/>
+      <column name="body" type="text"/>
+      <column name="md5" type="string"/>
+      <column name="timeout" type="decimal"/>
+      <column name="created" type="integer"/>
+    </table>
+    <orm-properties>
+      <attribute name="namespace">DoctrineQueue\Entity</attribute>
+    </orm-properties>
+    <foreign-key caption="" from="Messages" inverse-alias="" name="FK_Messages_Queue_id" owning-alias="" to="Queue">
+      <foreign-key-column from="queue_id" to="id"/>
+    </foreign-key>
+  </module>
+
+</orm-designer>
