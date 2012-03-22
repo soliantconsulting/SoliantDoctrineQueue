@@ -40,6 +40,8 @@ class Doctrine extends AbstractAdapter
      */
     public function isExists($name)
     {
+        if (!$this->em) throw \Exception('You must call setEm() before using this adapter');
+
         $repo = $this->em->getRepository('SoliantDoctrineQueue\Entity\Queue')->findOneBy(array(
             'name' => $name
         ));
@@ -62,6 +64,8 @@ class Doctrine extends AbstractAdapter
      */
     public function create($name, $timeout = null)
     {
+        if (!$this->em) throw \Exception('You must call setEm() before using this adapter');
+
         if ($this->isExists($name)) {
             return false;
         }
@@ -88,6 +92,8 @@ class Doctrine extends AbstractAdapter
      */
     public function delete($name)
     {
+        if (!$this->em) throw \Exception('You must call setEm() before using this adapter');
+
         $id = $this->getQueueId($name); // get primary key
 
         $repo = $this->em->getRepository('SoliantDoctrineQueue\Entity\Queue')->find($id);
@@ -112,6 +118,8 @@ class Doctrine extends AbstractAdapter
      */
     public function getQueues()
     {
+        if (!$this->em) throw \Exception('You must call setEm() before using this adapter');
+
         $queues = $this->em->getRepository('SoliantDoctrineQueue\Entity\Queue')->findAll();
         foreach ($queues as $queue) {
             $list[] = $queue->name;
@@ -129,6 +137,8 @@ class Doctrine extends AbstractAdapter
      */
     public function count(Queue $queue = null)
     {
+        if (!$this->em) throw \Exception('You must call setEm() before using this adapter');
+
         return (int)$this->em->getRepository('SoliantDoctrineQueue\Entity\Queue')->find($this->getQueueId($queue->getName()))->count();
     }
 
@@ -146,6 +156,8 @@ class Doctrine extends AbstractAdapter
      */
     public function send($message, Queue $queue = null)
     {
+        if (!$this->em) throw \Exception('You must call setEm() before using this adapter');
+
         if ($queue === null) {
             $queue = $this->_queue;
         }
@@ -251,6 +263,8 @@ class Doctrine extends AbstractAdapter
      */
     public function deleteMessage(Message $message)
     {
+        if (!$this->em) throw \Exception('You must call setEm() before using this adapter');
+
         $repo = $this->em->getRepository('SoliantDoctrineQueue\Entity\Messages')->findOneBy(array(
             'handle' => $message->handle
         ));
